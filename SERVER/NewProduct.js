@@ -30,7 +30,7 @@ router.post('/addNewProduct', urlencodedParser, function (req, res) {
         });
 });
 
-router.delete('/delteNewProduct/:id', function (req, res) {
+router.delete('/deleteNewProduct/:id', function (req, res) {
     var receivedData = mongoFunctions.handleData(2, 'NewProduct', {}, {}, {}, req.params.id)
         .then(function (result) {
             res.send(result);

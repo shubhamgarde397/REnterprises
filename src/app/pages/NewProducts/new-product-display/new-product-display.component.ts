@@ -3,6 +3,7 @@ import { ApiCallsService } from '../../../common/services/ApiCalls/ApiCalls.serv
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
 import { HandleDataService } from '../../../common/services/Data/handle-data.service';
+import { handleFunction } from '../../../common/services/functions/handleFunctions';
 
 @Component({
   selector: 'app-new-product-display',
@@ -25,11 +26,19 @@ export class NewProductDisplayComponent implements OnInit {
       });
   }
 
-  delete = function (id) {
+  delete = function (data) {
     if (confirm('Are you sure?')) {
-      this.apiCallservice.handleData('NewProduct/deleteNewProduct', 2, 1, {}, id)
+      this.apiCallservice.handleData('NewProduct/deleteNewProduct', 2, 1, {}, data.id)
         .subscribe((response: Response) => {
           this.fetchData();
+        });
+      this.valueStore = { 'category': data.category, 'subCategory': data.subCategory, 'nameOfProduct': data.nameOfProduct, 'quantity': data.quantity }
+      console.log(this.valueStore);
+
+      this.handleservice.handleData('Store/deleteStore', 2, 1, this.valueStore)//delete from here
+        .subscribe((x) => {
+          this.response = x;
+          this._location.back();
         });
     }
   };

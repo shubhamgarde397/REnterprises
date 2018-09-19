@@ -102,7 +102,7 @@ module.exports = {
                             }
                             if (apiCall == 5) {
                                 db.collection(tableName)
-                                    .update(manupulateData, { $inc: { 'quantity': body } },
+                                    .update(manupulateData, body,
                                         function (result, err) {
                                             if (err) {
                                                 reject(err);
