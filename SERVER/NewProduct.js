@@ -9,8 +9,8 @@ var mongoFunctions = require('./mongoFunctions');
 router.use(bodyParser.json());
 
 
-router.get('/getSubCategory', function (req, res) {
-    var receivedData = mongoFunctions.handleData(0, 'SubCategory', { 'subCategory': 1 })
+router.get('/getNewProduct', function (req, res) {
+    var receivedData = mongoFunctions.handleData(0, 'NewProduct', { 'nameOfProduct': 1 })
         .then((result) => {
             res.send(result);
         })
@@ -19,18 +19,9 @@ router.get('/getSubCategory', function (req, res) {
         });
 });
 
-router.get('/getSubCategorybyName/:name', function (req, res) {
-    var receivedData = mongoFunctions.handleData(0, 'SubCategory', { 'subCategory': 1 }, { "category": req.params.name })
-        .then((result) => {
-            res.send(result);
-        })
-        .catch((err) => {
-            res.send(err);
-        });
-});
 
-router.post('/addSubCategory', urlencodedParser, function (req, res) {
-    var receivedData = mongoFunctions.handleData(1, 'SubCategory', {}, {}, req.body, {})
+router.post('/addNewProduct', urlencodedParser, function (req, res) {
+    var receivedData = mongoFunctions.handleData(1, 'NewProduct', {}, {}, req.body, {})
         .then(function (result) {
             res.send(result);
         })
@@ -39,8 +30,8 @@ router.post('/addSubCategory', urlencodedParser, function (req, res) {
         });
 });
 
-router.delete('/deleteSubCategory/:id', function (req, res) {
-    var receivedData = mongoFunctions.handleData(2, 'SubCategory', {}, {}, {}, req.params.id)
+router.delete('/delteNewProduct/:id', function (req, res) {
+    var receivedData = mongoFunctions.handleData(2, 'NewProduct', {}, {}, {}, req.params.id)
         .then(function (result) {
             res.send(result);
         })

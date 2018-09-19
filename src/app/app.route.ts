@@ -10,6 +10,10 @@ import { SubCategoryHandlerComponent } from './pages/SubCategory/sub-category-ha
 import { SubCategoryAddComponent } from './pages/SubCategory/sub-category-add/sub-category-add.component';
 import { SubCategoryDisplayComponent } from './pages/SubCategory/sub-category-display/sub-category-display.component';
 import { SubCategoryUpdateComponent } from './pages/SubCategory/sub-category-update/sub-category-update.component';
+import { NewProductHandlerComponent } from './pages/NewProducts/new-product-handler/new-product-handler.component';
+import { NewProductDisplayComponent } from './pages/NewProducts/new-product-display/new-product-display.component';
+import { NewProductAddComponent } from './pages/NewProducts/new-product-add/new-product-add.component';
+import { NewProductUpdateComponent } from './pages/NewProducts/new-product-update/new-product-update.component';
 
 export const routes: Routes =
     [
@@ -66,6 +70,29 @@ export const routes: Routes =
                                             {
                                                 path: 'SubCategoryUpdate',
                                                 component: SubCategoryUpdateComponent
+                                            }
+                                        ]
+                                },
+                                {
+                                    path: 'NewProduct_Handler',
+                                    component: NewProductHandlerComponent,
+                                    children:
+                                        [
+                                            {
+                                                path: '',
+                                                component: NewProductDisplayComponent
+                                            },
+                                            {
+                                                path: 'NewProductAdd',
+                                                component: NewProductAddComponent
+                                            },
+                                            {
+                                                path: 'NewProductDisplay',
+                                                component: NewProductDisplayComponent
+                                            },
+                                            {
+                                                path: 'NewProductUpdate',
+                                                component: NewProductUpdateComponent
                                             }
                                         ]
                                 }

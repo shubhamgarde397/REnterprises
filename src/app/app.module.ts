@@ -32,6 +32,10 @@ import { SubCategoryAddComponent } from './pages/SubCategory/sub-category-add/su
 import { SubCategoryHandlerComponent } from './pages/SubCategory/sub-category-handler/sub-category-handler.component';
 import { SubCategoryDisplayComponent } from './pages/SubCategory/sub-category-display/sub-category-display.component';
 import { SubCategoryUpdateComponent } from './pages/SubCategory/sub-category-update/sub-category-update.component';
+import { NewProductHandlerComponent } from './pages/NewProducts/new-product-handler/new-product-handler.component';
+import { NewProductAddComponent } from './pages/NewProducts/new-product-add/new-product-add.component';
+import { NewProductDisplayComponent } from './pages/NewProducts/new-product-display/new-product-display.component';
+import { NewProductUpdateComponent } from './pages/NewProducts/new-product-update/new-product-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,10 @@ import { SubCategoryUpdateComponent } from './pages/SubCategory/sub-category-upd
     SubCategoryHandlerComponent,
     SubCategoryDisplayComponent,
     SubCategoryUpdateComponent,
+    NewProductHandlerComponent,
+    NewProductAddComponent,
+    NewProductDisplayComponent,
+    NewProductUpdateComponent,
   ],
   imports: [
     BrowserModule,

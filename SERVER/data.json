@@ -42,7 +42,7 @@
             "database": "Error connecting to the Database!",
             "update": "Error in Updating the current data"
         },
-        "serverStartMsg": "NRCM MAIN SERVER : 3000"
+        "serverStartMsg": "R Enterprises MAIN SERVER : 3000"
     },
     "sortBy": {
         "byVillageName": {

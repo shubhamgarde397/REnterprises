@@ -11,14 +11,16 @@ app.use(cors());
 
 var Category = require('./SERVER/Category');
 var login = require('./SERVER/login');
+var NewProduct = require('./SERVER/NewProduct');
 var SubCategory = require('./SERVER/SubCategory');
 
 app.use('/login', login);
 app.use('/Category', Category);
+app.use('/NewProduct', NewProduct);
 app.use('/SubCategory', SubCategory);
 
 // app.listen(3000, '10.222.67.66', function () {
-//     console.log("NRCM MAIN SERVER : 3000")
+//     console.log("R Enterprises MAIN SERVER : 3000")
 // });
 app.listen(3000, function () {
     console.log(common_data.Messages.serverStartMsg);
