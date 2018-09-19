@@ -16,6 +16,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./new-product-add.component.css']
 })
 export class NewProductAddComponent implements OnInit {
+  valueStore: {};
   subcategorylist: any;
   myFormGroup: FormGroup;
   model: newproduct;//mapped it to a variable
@@ -76,7 +77,14 @@ export class NewProductAddComponent implements OnInit {
     this.handleservice.handleData('NewProduct/addNewProduct', 1, 0, value)
       .subscribe((x) => {
         this.response = x;
+      });
+
+    this.valueStore = { 'category': value.category, 'subCategory': value.subCategory, 'nameOfProduct': value.nameOfProduct, 'quantity': value.quantity }
+    this.handleservice.handleData('Store/addStore', 1, 0, this.valueStore)
+      .subscribe((x) => {
+        this.response = x;
         this._location.back();
       });
+
   }
 }

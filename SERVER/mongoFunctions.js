@@ -100,6 +100,20 @@ module.exports = {
                                     });
                                 client.close();
                             }
+                            if (apiCall == 5) {
+                                db.collection(tableName)
+                                    .update(manupulateData, { $inc: { 'quantity': body } },
+                                        function (result, err) {
+                                            if (err) {
+                                                reject(err);
+                                            }
+                                            else {
+                                                resolve("Data updated Successfully!");
+                                            }
+                                        });
+
+                                client.close();
+                            }
                         });
                 }
             });
