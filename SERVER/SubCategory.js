@@ -29,7 +29,7 @@ router.post('/addSubCategory', urlencodedParser, function (req, res) {
         });
 });
 
-router.delete('/deleteCSubategory/:id', function (req, res) {
+router.delete('/deleteSubCategory/:id', function (req, res) {
     var receivedData = mongoFunctions.handleData(2, 'SubCategory', {}, {}, {}, req.params.id)
         .then(function (result) {
             res.send(result);
@@ -41,6 +41,7 @@ router.delete('/deleteCSubategory/:id', function (req, res) {
 
 router.use(bodyParser.json());
 router.put('/updateSubCategory', urlencodedParser, function (req, res) {
+    console.log("hi");
     var receivedData = mongoFunctions.handleData(3, 'SubCategory', {}, {},
         {
             'category': req.body.category,

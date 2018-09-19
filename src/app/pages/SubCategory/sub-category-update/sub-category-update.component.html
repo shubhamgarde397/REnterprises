@@ -1,3 +1,57 @@
-<p>
-  sub-category-update works!
-</p>
+<div class="well">
+
+  <form [formGroup]="myFormGroup" (ngSubmit)="change(myFormGroup)" submitted=true enctype="multipart/form data" action="/"
+    name="myform" id="myform">
+    <!-- value is not going in ts file    ,nopid.value-->
+
+    <!--Category-->
+    <div class="form-group row">
+      <div class="col-xs-3">
+        <select id="category" class="form-control " formControlName="category">
+          <option> {{category}}</option>
+          <option *ngFor="let i of categorylist">{{i.category}}</option>
+        </select>
+      </div>
+      <div class="col-xs-1">
+        <div [hidden]="myFormGroup.controls.category.valid">
+          <font color="red">
+            <span class="glyphicon glyphicon-remove"></span>
+          </font>
+        </div>
+      </div>
+    </div>
+    <!--Category-->
+    <!--SubCategory-->
+    <div class="form-group row">
+
+      <div class="col-xs-3">
+        <input type="text" id="subCategory" class="form-control" formControlName="subCategory" placeholder="subCategory Name">
+      </div>
+      <div class="col-xs-1">
+        <div [hidden]="myFormGroup.controls.subCategory.valid">
+          <font color="red">
+            <span class="glyphicon glyphicon-remove"></span>
+          </font>
+        </div>
+      </div>
+    </div>
+    <!--SubCategory-->
+
+    <div class="row">
+      <div class="form-group" class="col-xs-2"></div>
+      <div class="form-group" class="col-xs-1">
+        <button type="submit" class="btn btn-primary" [disabled]='!myFormGroup.valid'>
+          <i class="material-icons">send</i>
+        </button>
+      </div>
+      <div class="col-xs-1">
+        <button type="button" class="btn btn-success" (click)="backClicked()">
+          <i class="material-icons">keyboard_backspace</i>
+        </button>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

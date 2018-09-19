@@ -51,6 +51,9 @@ export class SubCategoryAddComponent implements OnInit {
   storeSubCategoryData({ value, valid }: { value: subcategory, valid: boolean }) {
     this.submitted = true;
     this.handleservice.handleData('SubCategory/addsubCategory', 1, 0, value)
-      .subscribe(x => this.response = x);
+      .subscribe((x) => {
+        this.response = x;
+        this._location.back();
+      });
   }
 }

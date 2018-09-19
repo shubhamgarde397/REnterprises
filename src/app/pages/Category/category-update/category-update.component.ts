@@ -33,10 +33,8 @@ export class CategoryUpdateComponent implements OnInit {
     });
   }
   change = function (data) {
-    let category = data.value.category
-    const id = this.handledata.Data._id;
-    this.arr = { category, id };
-    this.apiCallservice.handleData('Category/updateCategory', 3, 0, this.arr)
+    data.value.id = this.handledata.Data._id;
+    this.apiCallservice.handleData('Category/updateCategory', 3, 0, data.value)
       .subscribe((response: Response) => {
         this.show = !this.show;
         this._location.back();

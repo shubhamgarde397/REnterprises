@@ -27,7 +27,7 @@ export class SubCategoryDisplayComponent implements OnInit {
 
   deleteSubCategory = function (id) {
     if (confirm('Are you sure?')) {
-      this.apiCallservice.handleData('SubCategory/deleteCategory', 2, 1, {}, id)
+      this.apiCallservice.handleData('SubCategory/deleteSubCategory', 2, 1, {}, id)
         .subscribe((response: Response) => {
           this.fetchData();
         });

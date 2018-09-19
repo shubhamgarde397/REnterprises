@@ -37,6 +37,9 @@ export class CategoryAddComponent implements OnInit {
   storeCategoryData({ value, valid }: { value: category, valid: boolean }) {
     this.submitted = true;
     this.apiCallservice.handleData('Category/addCategory', 1, 0, value)
-      .subscribe(x => this.response = x);
+      .subscribe((x) => {
+        this.response = x;
+        this._location.back();
+      });
   }
 }

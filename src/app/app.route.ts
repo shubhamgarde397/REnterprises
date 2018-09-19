@@ -29,6 +29,10 @@ export const routes: Routes =
                                     children:
                                         [
                                             {
+                                                path: '',
+                                                component: CategoryDispComponent
+                                            },
+                                            {
                                                 path: 'CategoryAdd',
                                                 component: CategoryAddComponent
                                             },
@@ -47,6 +51,10 @@ export const routes: Routes =
                                     component: SubCategoryHandlerComponent,
                                     children:
                                         [
+                                            {
+                                                path: '',
+                                                component: SubCategoryDisplayComponent
+                                            },
                                             {
                                                 path: 'SubCategoryAdd',
                                                 component: SubCategoryAddComponent
