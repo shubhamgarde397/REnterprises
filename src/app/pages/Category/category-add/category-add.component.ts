@@ -25,7 +25,7 @@ export class CategoryAddComponent implements OnInit {
 
   response: any;
 
-  constructor(private router: Router, private handleservice: ApiCallsService, private http: Http, private formBuilder: FormBuilder, private _location: Location) { }
+  constructor(private router: Router, private apiCallservice: ApiCallsService, private http: Http, private formBuilder: FormBuilder, private _location: Location) { }
   name: string;
   ngOnInit() {
     this.model = new category(this.name);
@@ -36,7 +36,7 @@ export class CategoryAddComponent implements OnInit {
 
   storeCategoryData({ value, valid }: { value: category, valid: boolean }) {
     this.submitted = true;
-    this.handleservice.handleData('Category/addCategory', 1, 0, value)
+    this.apiCallservice.handleData('Category/addCategory', 1, 0, value)
       .subscribe(x => this.response = x);
   }
 }

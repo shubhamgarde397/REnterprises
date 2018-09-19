@@ -28,6 +28,10 @@ import { CategoryHandlerComponent } from './pages/Category/category-handler/cate
 import { CategoryAddComponent } from './pages/Category/category-add/category-add.component';
 import { CategoryDispComponent } from './pages/Category/category-disp/category-disp.component';
 import { CategoryUpdateComponent } from './pages/Category/category-update/category-update.component';
+import { SubCategoryAddComponent } from './pages/SubCategory/sub-category-add/sub-category-add.component';
+import { SubCategoryHandlerComponent } from './pages/SubCategory/sub-category-handler/sub-category-handler.component';
+import { SubCategoryDisplayComponent } from './pages/SubCategory/sub-category-display/sub-category-display.component';
+import { SubCategoryUpdateComponent } from './pages/SubCategory/sub-category-update/sub-category-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +43,10 @@ import { CategoryUpdateComponent } from './pages/Category/category-update/catego
     CategoryAddComponent,
     CategoryDispComponent,
     CategoryUpdateComponent,
+    SubCategoryAddComponent,
+    SubCategoryHandlerComponent,
+    SubCategoryDisplayComponent,
+    SubCategoryUpdateComponent,
   ],
   imports: [
     BrowserModule,
