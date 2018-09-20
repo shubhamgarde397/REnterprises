@@ -28,17 +28,19 @@ export class NewProductDisplayComponent implements OnInit {
 
   delete = function (data) {
     if (confirm('Are you sure?')) {
-      this.apiCallservice.handleData('NewProduct/deleteNewProduct', 2, 1, {}, data.id)
+      this.apiCallservice.handleData('NewProduct/deleteNewProduct', 2, 1, {}, data._id)
         .subscribe((response: Response) => {
+          console.log(response);
+
           this.fetchData();
         });
-      this.valueStore = { 'category': data.category, 'subCategory': data.subCategory, 'nameOfProduct': data.nameOfProduct, 'quantity': data.quantity }
+      this.valueStore = { 'category': data.category, 'subCategory': data.subCategory, 'nameOfProduct': data.nameOfProduct, 'quantity': data.quantity };
       console.log(this.valueStore);
 
-      this.handleservice.handleData('Store/deleteStore', 2, 1, this.valueStore)//delete from here
+      this.apiCallservice.handleData('Store/deleteStore', 1, 0, this.valueStore)//delete from here
         .subscribe((x) => {
           this.response = x;
-          this._location.back();
+          this.fetchData();
         });
     }
   };

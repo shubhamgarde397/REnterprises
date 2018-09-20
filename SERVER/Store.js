@@ -32,7 +32,6 @@ router.post('/addStore', urlencodedParser, function (req, res) {
                         'subCategory': req.body.subCategory,
                         'nameOfProduct': req.body.nameOfProduct
                     }
-
                 )
                     .then(function (result) {
                         res.send(result);
@@ -50,7 +49,23 @@ router.post('/addStore', urlencodedParser, function (req, res) {
                         res.send(err);
                     });
             }
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
 
+router.post('/deleteStore', function (req, res) {
+    var receivedData = mongoFunctions.handleData(5, 'Store', {}, {},
+        { $inc: { 'quantity': -(req.body.quantity), } },
+        {
+            'category': req.body.category,
+            'subCategory': req.body.subCategory,
+            'nameOfProduct': req.body.nameOfProduct
+        }
+    )
+        .then(function (result) {
+            res.send(result);
         })
         .catch((err) => {
             res.send(err);

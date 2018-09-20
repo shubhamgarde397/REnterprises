@@ -14,6 +14,8 @@ import { NewProductHandlerComponent } from './pages/NewProducts/new-product-hand
 import { NewProductDisplayComponent } from './pages/NewProducts/new-product-display/new-product-display.component';
 import { NewProductAddComponent } from './pages/NewProducts/new-product-add/new-product-add.component';
 import { NewProductUpdateComponent } from './pages/NewProducts/new-product-update/new-product-update.component';
+// import { StoreHandlerComponent } from './pages/Store/store-handler/store-handler.component';
+// import { StoreDisplayComponent } from './pages/Store/store-display/store-display.component';
 
 export const routes: Routes =
     [
@@ -95,7 +97,22 @@ export const routes: Routes =
                                                 component: NewProductUpdateComponent
                                             }
                                         ]
-                                }
+                                },
+                                // {
+                                //     path: 'Store_Handler',
+                                //     component: StoreHandlerComponent,
+                                //     children:
+                                //         [
+                                //             {
+                                //                 path: '',
+                                //                 component: StoreDisplayComponent
+                                //             },
+                                //             {
+                                //                 path: 'StoreDisplay',
+                                //                 component: StoreDisplayComponent
+                                //             }
+                                //         ]
+                                // }
                             ]
                     }
                 ]
