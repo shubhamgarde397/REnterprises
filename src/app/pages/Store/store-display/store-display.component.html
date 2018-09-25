@@ -3,7 +3,6 @@
     <thead>
       <tr>
         <th scope="col">Srno</th>
-        <th scope="col">Date</th>
         <th scope="col">Category</th>
         <th scope="col">SubCategory</th>
         <th scope="col">Name</th>
@@ -14,7 +13,6 @@
 
       <tr *ngFor="let i of storedata;let j = index">
         <th scope="row">{{j+1}}</th>
-        <td>{{i.date|date:'dd-MM-yyyy'}}</td>
         <td>{{i.category}}</td>
         <td>{{i.subCategory}}</td>
         <td>{{i.nameOfProduct}}</td>

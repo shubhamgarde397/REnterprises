@@ -3,10 +3,10 @@
 </div>
 
 
-<div class="container-fluid home" *ngIf="show">
+<div class="container home" *ngIf="show">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="header">
-      <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-4">R Enterprises</div>
+    <div class="col-sm-12" id="header">
+      <div class="col-sm-12">R Enterprises</div>
     </div>
   </div>
   <div class="row ">
@@ -15,7 +15,7 @@
         id="myform" class="form-horizontal">
 
         <div class="form-group">
-          <div class="col-xs-4 col-xs-offset-4 col-sm-5 col-sm-offset-4 col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-6 col-xlg-2">
+          <div class="col-sm-12">
             <input type="text" class="form-control input" placeholder="Username" formControlName="username" required />
           </div>
           <div [hidden]="myFormGroup.controls.username.valid">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-          <div class="col-xs-4 col-xs-offset-4 col-sm-5 col-sm-offset-4 col-md-5 col-lg-4 col-lg-offset-6 col-xlg-2">
+          <div class="col-sm-12">
             <input type="password" class="form-control input" placeholder="Password" formControlName="password" required />
           </div>
           <div [hidden]="myFormGroup.controls.password.valid">
@@ -38,11 +38,10 @@
 
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary col-xs-4 col-xs-offset-4 col-sm-5 col-sm-offset-4 col-md-5 col-lg-4 col-lg-offset-6 col-xlg-2">
+          <button type="submit" class="btn btn-primary col-sm-12">
             <i class="material-icons">lock_open</i>
           </button>
-          <button type="button" (click)="register()" class="btn btn-primary col-xs-4 col-xs-offset-4 col-sm-5 col-sm-offset-4 col-md-5 col-lg-4 col-lg-offset-6 col-xlg-2"
-            disabled>
+          <button type="button" (click)="register()" class="btn btn-primary col-sm-12" disabled>
             <i class="material-icons">fiber_new</i>
           </button>
 
