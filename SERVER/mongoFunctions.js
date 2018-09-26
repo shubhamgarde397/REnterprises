@@ -30,7 +30,7 @@ function getTableName(tablename) {
 }
 
 module.exports = {
-    handleData: function (apiCall, collectionName, sortData = {}, findData = {}, body = {}, manupulateData = {}) {
+    handleData: function (apiCall, collectionName, sortData = {}, findData = {}, body = {}, manupulateData = {}, getColumn = {}) {
         var promise = new Promise((resolve, reject) => {
             mongoClient.connect(url, function (err, client) {
                 if (err) { console.log(common_data.Messages.error, err); }
@@ -40,7 +40,7 @@ module.exports = {
                             var db = client.db(dbName);
                             if (apiCall == 0) {
                                 db.collection(tableName)
-                                    .find(findData).sort(sortData).toArray(function (err, result) {
+                                    .find(findData, getColumn).sort(sortData).toArray(function (err, result) {
                                         if (err) {
                                             reject(err);
                                         }
@@ -119,5 +119,13 @@ module.exports = {
             });
         });
         return promise;
+    },
+    getTotal: function (data) {
+        var total = 0;
+        data.forEach(element => {
+            newTotal = (element.quantity * element.sellingPrice);
+            total = total + newTotal;
+        });
+        return total;
     }
 }

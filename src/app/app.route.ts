@@ -16,6 +16,9 @@ import { NewProductAddComponent } from './pages/NewProducts/new-product-add/new-
 import { NewProductUpdateComponent } from './pages/NewProducts/new-product-update/new-product-update.component';
 import { StoreHandlerComponent } from './pages/Store/store-handler/store-handler.component';
 import { StoreDisplayComponent } from './pages/Store/store-display/store-display.component';
+import { CartDisplayComponent } from './pages/Cart/cart-display/cart-display.component';
+import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.component';
+import { ShopDisplayComponent } from './pages/Shop/shop-display/shop-display.component';
 
 export const routes: Routes =
     [
@@ -112,8 +115,27 @@ export const routes: Routes =
                                                 component: StoreDisplayComponent
                                             }
                                         ]
+                                },
+                                {
+                                    path: 'Shop_Handler',
+                                    component: ShopHandlerComponent,
+                                    children:
+                                        [
+                                            {
+                                                path: '',
+                                                component: ShopDisplayComponent
+                                            },
+                                            {
+                                                path: 'ShopDisplay',
+                                                component: ShopDisplayComponent
+                                            }
+                                        ]
                                 }
                             ]
+                    },
+                    {
+                        path: 'Cart',
+                        component: CartDisplayComponent
                     }
                 ]
         }

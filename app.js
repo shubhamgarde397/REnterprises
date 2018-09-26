@@ -9,14 +9,16 @@ app.use(express.static(__dirname));
 var cors = require(common_data.required.cors)
 app.use(cors());
 
+var Cart = require('./SERVER/Cart');
 var Category = require('./SERVER/Category');
 var login = require('./SERVER/login');
 var NewProduct = require('./SERVER/NewProduct');
 var Store = require('./SERVER/Store');
 var SubCategory = require('./SERVER/SubCategory');
 
-app.use('/login', login);
+app.use('/Cart', Cart);
 app.use('/Category', Category);
+app.use('/login', login);
 app.use('/NewProduct', NewProduct);
 app.use('/Store', Store);
 app.use('/SubCategory', SubCategory);

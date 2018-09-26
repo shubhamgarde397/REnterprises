@@ -38,6 +38,9 @@ import { NewProductDisplayComponent } from './pages/NewProducts/new-product-disp
 import { NewProductUpdateComponent } from './pages/NewProducts/new-product-update/new-product-update.component';
 import { StoreHandlerComponent } from './pages/Store/store-handler/store-handler.component';
 import { StoreDisplayComponent } from './pages/Store/store-display/store-display.component';
+import { CartDisplayComponent } from './pages/Cart/cart-display/cart-display.component';
+import { ShopDisplayComponent } from './pages/Shop/shop-display/shop-display.component';
+import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { StoreDisplayComponent } from './pages/Store/store-display/store-display
     NewProductUpdateComponent,
     StoreHandlerComponent,
     StoreDisplayComponent,
+    CartDisplayComponent,
+    ShopDisplayComponent,
+    ShopHandlerComponent,
 
   ],
   imports: [

@@ -84,6 +84,5 @@ export class NewProductAddComponent implements OnInit {
         this.response = x;
         this._location.back();
       });
-
   }
 }
