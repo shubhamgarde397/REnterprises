@@ -23,7 +23,7 @@ export class ShopDisplayComponent implements OnInit {
   constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
 
   fetchData = function () {
-    this.apiCallservice.handleData('NewProduct/getNewProduct', 0, 0)
+    this.apiCallservice.handleData('Store/getStore', 0, 0)
       .subscribe((res: Response) => {
         this.categories = res.json();
       });

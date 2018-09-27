@@ -78,7 +78,7 @@ export class NewProductAddComponent implements OnInit {
       .subscribe((x) => {
         this.response = x;
       });
-    this.valueStore = { 'category': value.category, 'subCategory': value.subCategory, 'nameOfProduct': value.nameOfProduct, 'quantity': value.quantity }
+    this.valueStore = { 'category': value.category, 'subCategory': value.subCategory, 'nameOfProduct': value.nameOfProduct, 'quantity': value.quantity, 'sellingPrice': value.sellingPrice }
     this.handleservice.handleData('Store/addStore', 1, 0, this.valueStore)
       .subscribe((x) => {
         this.response = x;

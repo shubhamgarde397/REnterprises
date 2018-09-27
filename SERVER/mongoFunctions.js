@@ -4,8 +4,8 @@
  * 2.DELETE_BY__ID
  * 3.UPDATE
  * 4.COUNT
- * 5.COUNT-ADVANCED
- * 6.DELETE_BY_SOMETHING_ELSE
+ * 5.UPDATE_BY_BODY
+ * 6.DROP
  */
 
 var express = require('express')
@@ -113,6 +113,18 @@ module.exports = {
                                         });
 
                                 client.close();
+                            }
+                            if (apiCall == 6) {
+                                db.collection(tableName)
+                                    .drop(function (result, err) {
+                                        if (err) {
+                                            reject(err);
+                                        }
+                                        else {
+                                            resolve(result);
+                                        }
+                                        client.close();
+                                    });
                             }
                         });
                 }

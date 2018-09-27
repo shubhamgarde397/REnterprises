@@ -34,4 +34,7 @@
       </tr>
     </tbody>
   </table>
+  <div *ngIf="checkoutButton">
+    <button class="btn btn-warning" (click)="checkout()">Checkout</button>
+  </div>
 </div>

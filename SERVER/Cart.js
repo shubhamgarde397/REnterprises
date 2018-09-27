@@ -78,6 +78,16 @@ router.delete('/deleteCart/:id', function (req, res) {
         });
 });
 
+router.delete('/deleteCartFull', function (req, res) {
+    var receivedData = mongoFunctions.handleData(6, 'Cart', {}, {}, {})
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
+
 router.use(bodyParser.json());
 router.put('/updateCart', urlencodedParser, function (req, res) {
     var receivedData = mongoFunctions.handleData(3, 'Cart', {}, {},
