@@ -65,8 +65,7 @@ import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.com
     StoreDisplayComponent,
     CartDisplayComponent,
     ShopDisplayComponent,
-    ShopHandlerComponent,
-
+    ShopHandlerComponent
   ],
   imports: [
     BrowserModule,

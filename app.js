@@ -16,12 +16,16 @@ var NewProduct = require('./SERVER/NewProduct');
 var Store = require('./SERVER/Store');
 var SubCategory = require('./SERVER/SubCategory');
 
+var Data = require('./SERVER/Data');
+
 app.use('/Cart', Cart);
 app.use('/Category', Category);
 app.use('/login', login);
 app.use('/NewProduct', NewProduct);
 app.use('/Store', Store);
 app.use('/SubCategory', SubCategory);
+
+app.use('/Data', Data);
 
 // app.listen(3000, '10.222.67.66', function () {
 //     console.log("R Enterprises MAIN SERVER : 3000")
