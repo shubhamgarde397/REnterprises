@@ -12,15 +12,21 @@ import { handleFunction } from '../../../common/services/functions/handleFunctio
   providers: [ApiCallsService]
 })
 export class ShopDisplayComponent implements OnInit {
-  response: Object;
-  example: any;
+
+  public response: Object;
   private villageslist;
   private show = false;
   private found;
   private arr;
   private quantity: number = 1;
+  public quant = 0;
+  public categories;
 
-  constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
+  constructor(
+    private apiCallservice: ApiCallsService,
+    private router: Router,
+    private handledata: HandleDataService
+  ) { }
 
   fetchData = function () {
     this.apiCallservice.handleData('Store/getStore', 0, 0)
@@ -30,12 +36,25 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   add(value) {
-
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
       .subscribe((x) => {
         this.response = x;
       });
+  }
+
+  removeQuantity(value) {
+    value.quant = value.quant - 1;
+  }
+
+  addQuantity(value) {
+    value.quant = value.quant + 1;
+  }
+
+  checkout() {
+    console.log("data in shop", this.categories);
+    this.handledata.saveData(this.categories);
+    this.router.navigate(['DashBoard/Cart']);
   }
 
   ngOnInit() {

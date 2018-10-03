@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCallsService } from '../../../common/services/ApiCalls/ApiCalls.service';
+import { HandleDataService } from '../../../common/services/Data/handle-data.service';
 
 @Component({
   selector: 'app-new-product-update',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductUpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private apiCallservice: ApiCallsService,
+    private handledata: HandleDataService
+  ) { }
 
   ngOnInit() {
+    console.log(this.handledata.Data);
   }
 
 }

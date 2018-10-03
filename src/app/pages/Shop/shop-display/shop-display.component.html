@@ -22,12 +22,21 @@
         <td>{{i.quantity}}</td>
         <td>{{i.sellingPrice}}</td>
         <td>
-          <button mat-raised-button type="button" (click)="add(i)" class="btn-danger btn-sm btn-just-icon edit">
+
+          <button mat-raised-button type="button" (click)="removeQuantity(i)" class="btn-danger btn-sm btn-just-icon edit" [disabled]="1>i.quant ">
+
+            <i class="material-icons">remove</i>
+          </button>
+
+          {{i.quant}}
+          <button mat-raised-button type="button" (click)="addQuantity(i)" class="btn-success btn-sm btn-just-icon edit" [disabled]="i.quant===i.quantity">
             <i class="material-icons">add</i>
           </button>
         </td>
-
       </tr>
     </tbody>
   </table>
+  <div class="row">
+    <button class="btn btn-warning" (click)="checkout()">Checkout</button>
+  </div>
 </div>

@@ -23,7 +23,6 @@ router.get('/getStore', function (req, res) {
 router.post('/addStore', urlencodedParser, function (req, res) {
     var receivedData = mongoFunctions.handleData(4, 'Store', {}, { $and: [{ 'category': req.body.category }, { 'subCategory': req.body.subCategory }, { 'nameOfProduct': req.body.nameOfProduct }] })
         .then(function (result) {
-            console.log(result);
             if (result == 1) {
                 var receivedData = mongoFunctions.handleData(5, 'Store', {}, {},
                     { $inc: { 'quantity': req.body.quantity, } },
@@ -41,6 +40,7 @@ router.post('/addStore', urlencodedParser, function (req, res) {
                     });
             }
             else {
+                req.body.quant = 0;
                 var receivedData = mongoFunctions.handleData(1, 'Store', {}, {}, req.body, {})
                     .then(function (result) {
                         res.send(result);

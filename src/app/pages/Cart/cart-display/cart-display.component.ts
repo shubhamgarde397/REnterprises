@@ -6,6 +6,7 @@ import { HandleDataService } from '../../../common/services/Data/handle-data.ser
 import { handleFunction } from '../../../common/services/functions/handleFunctions';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart-display',
@@ -19,21 +20,29 @@ export class CartDisplayComponent implements OnInit {
   private found;
   private arr;
   newAuthor: any;
+  public subscription: Subscription;
+  public message: string;
 
   constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
 
   fetchData = function () {
-    this.apiCallservice.handleData('Cart/getCart', 0, 0)
-      .subscribe((res) => {
-        if (res.json().length == 0) {
-          this.checkoutButton = false;
-          this.products = res.json();
-        }
-        else {
-          this.checkoutButton = true;
-          this.products = res.json();
-        }
-      });
+    // this.apiCallservice.handleData('Cart/getCart', 0, 0)
+    //   .subscribe((res) => {
+    //     if (res.json().length == 0) {
+    //       this.checkoutButton = false;
+    //       this.products = res.json();
+    //     }
+    //     else {
+    //       this.checkoutButton = true;
+    //       this.products = res.json();
+    //     }
+    //   });
+
+    this.categories = this.handledata.Data;
+
+    // console.log(this.categories[0]);
+
+
   }
 
   getTotal = function () {
@@ -113,6 +122,16 @@ export class CartDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
-    this.getTotal();
+    // this.getTotal();
+
+    // this.subscription = this.handledata.message.subscribe((message) => {
+    //   console.log("hi");
+    //   console.log(message);
+    //   this.message = message;
+    // })
+
   }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }

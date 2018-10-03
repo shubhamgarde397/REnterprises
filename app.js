@@ -108,5 +108,5 @@ function arrwithpromise(a) {
 // WITH PROMISE
 
 app.listen(3000, function () {
-    console.log(common_data.Messages.serverStartMsg);
+    console.log("RE");
 });

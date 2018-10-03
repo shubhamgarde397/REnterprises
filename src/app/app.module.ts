@@ -83,7 +83,7 @@ import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.com
     MatSidenavModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [getFullApi, handleFunction, HandleDataService],
+  providers: [getFullApi, handleFunction],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
