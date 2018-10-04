@@ -22,26 +22,19 @@ export class CartDisplayComponent implements OnInit {
   newAuthor: any;
   public subscription: Subscription;
   public message: string;
+  private checkoutButton = false;
 
   constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
 
   fetchData = function () {
-    // this.apiCallservice.handleData('Cart/getCart', 0, 0)
-    //   .subscribe((res) => {
-    //     if (res.json().length == 0) {
-    //       this.checkoutButton = false;
-    //       this.products = res.json();
-    //     }
-    //     else {
-    //       this.checkoutButton = true;
-    //       this.products = res.json();
-    //     }
-    //   });
-
-    this.categories = this.handledata.Data;
-
-    // console.log(this.categories[0]);
-
+    if (this.handledata.Data) {
+      this.checkoutButton = true;
+      this.products = this.handledata.Data;
+    }
+    else {
+      this.checkoutButton = false;
+      this.products = this.handledata.Data;
+    }
 
   }
 
@@ -49,7 +42,7 @@ export class CartDisplayComponent implements OnInit {
     this.apiCallservice.handleData('Cart/getTotal', 0, 0)
       .subscribe((res: Response) => {
         this.result = res.json();
-        this.Total = this.result.total;
+        // this.Total = this.result.total;
       });
   }
 
@@ -58,7 +51,7 @@ export class CartDisplayComponent implements OnInit {
       this.apiCallservice.handleData('Cart/deleteCart', 2, 1, {}, data._id)
         .subscribe((response: Response) => {
           this.fetchData();
-          this.getTotal();
+          // this.getTotal();
         });
     }
   };
@@ -124,14 +117,5 @@ export class CartDisplayComponent implements OnInit {
     this.fetchData();
     // this.getTotal();
 
-    // this.subscription = this.handledata.message.subscribe((message) => {
-    //   console.log("hi");
-    //   console.log(message);
-    //   this.message = message;
-    // })
-
   }
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 }

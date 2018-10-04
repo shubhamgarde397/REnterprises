@@ -52,7 +52,7 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   checkout() {
-    console.log("data in shop", this.categories);
+    //write a logic here which checks if value.quant>0 then and then only push it into the saveData() also handle delete functionality
     this.handledata.saveData(this.categories);
     this.router.navigate(['DashBoard/Cart']);
   }
