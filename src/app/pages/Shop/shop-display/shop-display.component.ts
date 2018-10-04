@@ -13,6 +13,7 @@ import { handleFunction } from '../../../common/services/functions/handleFunctio
 })
 export class ShopDisplayComponent implements OnInit {
 
+  realCategories: any[];
   public response: Object;
   private villageslist;
   private show = false;
@@ -52,10 +53,12 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   checkout() {
+    this.realCategories = this.handledata.returnItems(this.categories);
     //write a logic here which checks if value.quant>0 then and then only push it into the saveData() also handle delete functionality
-    this.handledata.saveData(this.categories);
+    this.handledata.saveData(this.realCategories);
     this.router.navigate(['DashBoard/Cart']);
   }
+
 
   ngOnInit() {
     this.fetchData();

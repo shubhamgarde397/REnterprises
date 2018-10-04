@@ -28,6 +28,8 @@ export class CartDisplayComponent implements OnInit {
 
   fetchData = function () {
     if (this.handledata.Data) {
+      this.Total = this.getTotal(this.handledata.Data);
+      console.log(this.Total);
       this.checkoutButton = true;
       this.products = this.handledata.Data;
     }
@@ -38,12 +40,15 @@ export class CartDisplayComponent implements OnInit {
 
   }
 
-  getTotal = function () {
-    this.apiCallservice.handleData('Cart/getTotal', 0, 0)
-      .subscribe((res: Response) => {
-        this.result = res.json();
-        // this.Total = this.result.total;
-      });
+  getTotal(data) {
+    var total = 0;
+    var newTotal = 0;
+    data.forEach((element, index) => {
+      newTotal = (element.quant * element.sellingPrice);
+      total = total + newTotal;
+    });
+
+    return total;
   }
 
   delete = function (data) {
@@ -63,6 +68,7 @@ export class CartDisplayComponent implements OnInit {
   }
 
   checkout() {
+    this.handledata.saveData(null);
     this.apiCallservice.handleData('Cart/getCart', 0, 0)
       .subscribe((res: Response) => {
         this.newAuthor = res.json();
@@ -115,7 +121,5 @@ export class CartDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
-    // this.getTotal();
-
   }
 }

@@ -5,14 +5,26 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class HandleDataService {
-  public Data;
-  public DataArray = {};
+  public Data = null;
+  public DataArray = [];
   public message = new Subject<string>();
 
   constructor() { }
 
   saveData(data) {
     this.Data = data;
-    console.log("in service", this.Data);
+    this.DataArray = [];
+    console.log(this.Data);
+  }
+
+
+
+  returnItems(data) {
+    data.forEach((element, index) => {
+      if (element.quant != 0) {
+        this.DataArray.push(element);
+      }
+    });
+    return this.DataArray;
   }
 }
