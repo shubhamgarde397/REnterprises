@@ -62,10 +62,22 @@ router.post('/deleteStore', function (req, res) {
             'category': req.body.category,
             'subCategory': req.body.subCategory,
             'nameOfProduct': req.body.nameOfProduct
-        }
-    )
+        })
         .then(function (result) {
             res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
+
+router.post('/deleteFinalStore', function (req, res) {
+    var receivedData = mongoFunctions.handleData(0, 'Cart', { 'nameOfProduct': 1 })
+        .then((result) => {
+            result.forEach(element => {
+                var receivedData = mongoFunctions.deleteQuantityFromStore(element);
+            });
+
         })
         .catch((err) => {
             res.send(err);

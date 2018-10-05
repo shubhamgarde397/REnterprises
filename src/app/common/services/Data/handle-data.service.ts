@@ -17,8 +17,6 @@ export class HandleDataService {
     console.log(this.Data);
   }
 
-
-
   returnItems(data) {
     data.forEach((element, index) => {
       if (element.quant != 0) {

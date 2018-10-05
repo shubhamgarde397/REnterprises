@@ -132,12 +132,20 @@ module.exports = {
         });
         return promise;
     },
-    getTotal: function (data) {
-        var total = 0;
-        data.forEach(element => {
-            newTotal = (element.quantity * element.sellingPrice);
-            total = total + newTotal;
-        });
-        return total;
+    deleteQuantityFromStore: function (data) {
+        this.handleData(5, 'Store', {}, {},
+            { $inc: { 'quantity': -(data.quantity), } },
+            {
+                'category': data.category,
+                'subCategory': data.subCategory,
+                'nameOfProduct': data.nameOfProduct
+            }
+        )
+            .then(function (result) {
+                return (result);
+            })
+            .catch((err) => {
+                return (err);
+            });
     }
 }

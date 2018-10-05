@@ -68,8 +68,14 @@ router.post('/addCart', urlencodedParser, function (req, res) {
         });
 });
 
-router.delete('/deleteCart/:id', function (req, res) {
-    var receivedData = mongoFunctions.handleData(2, 'Cart', {}, {}, {}, req.params.id)
+router.post('/deleteCart', function (req, res) {
+    var receivedData = mongoFunctions.handleData(5, 'Cart', {}, {},
+        { $inc: { 'quantity': -1, } },
+        {
+            'category': req.body.category,
+            'subCategory': req.body.subCategory,
+            'nameOfProduct': req.body.nameOfProduct
+        })
         .then(function (result) {
             res.send(result);
         })
@@ -78,6 +84,15 @@ router.delete('/deleteCart/:id', function (req, res) {
         });
 });
 
+router.delete('/deleteCartWholeItem/:id', function (req, res) {
+    var receivedData = mongoFunctions.handleData(2, 'Cart', {}, {}, {}, req.params.id)
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+})
 router.delete('/deleteCartFull', function (req, res) {
     var receivedData = mongoFunctions.handleData(6, 'Cart', {}, {}, {})
         .then(function (result) {

@@ -36,7 +36,8 @@ export class ShopDisplayComponent implements OnInit {
       });
   }
 
-  add(value) {
+  addQuantity(value) {
+    value.quant = value.quant + 1;
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
       .subscribe((x) => {
@@ -46,16 +47,15 @@ export class ShopDisplayComponent implements OnInit {
 
   removeQuantity(value) {
     value.quant = value.quant - 1;
-  }
-
-  addQuantity(value) {
-    value.quant = value.quant + 1;
+    this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
+    this.apiCallservice.handleData('Cart/deleteCart', 1, 0, this.arr)
+      .subscribe((x) => {
+        this.response = x;
+      });
   }
 
   checkout() {
-    this.realCategories = this.handledata.returnItems(this.categories);
-    //write a logic here which checks if value.quant>0 then and then only push it into the saveData() also handle delete functionality
-    this.handledata.saveData(this.realCategories);
+    // this.realCategories = this.handledata.returnItems(this.categories);
     this.router.navigate(['DashBoard/Cart']);
   }
 

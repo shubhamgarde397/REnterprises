@@ -23,40 +23,43 @@ export class CartDisplayComponent implements OnInit {
   public subscription: Subscription;
   public message: string;
   private checkoutButton = false;
+  public customerName: string;
 
   constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
 
   fetchData = function () {
-    if (this.handledata.Data) {
-      this.Total = this.getTotal(this.handledata.Data);
-      console.log(this.Total);
-      this.checkoutButton = true;
-      this.products = this.handledata.Data;
-    }
-    else {
-      this.checkoutButton = false;
-      this.products = this.handledata.Data;
-    }
 
+    this.apiCallservice.handleData('Cart/getCart', 0, 0)
+      .subscribe((res) => {
+
+        if (res.json().length != 0) {
+          this.Total = this.getTotal(res.json());
+          this.checkoutButton = true;
+          this.products = res.json();
+        }
+        else {
+          this.Total = "No items in the Cart"
+          this.checkoutButton = false;
+          this.products = this.handledata.Data;
+        }
+      })
   }
 
   getTotal(data) {
     var total = 0;
     var newTotal = 0;
-    data.forEach((element, index) => {
-      newTotal = (element.quant * element.sellingPrice);
+    data.forEach(element => {
+      newTotal = (element.quantity * element.sellingPrice);
       total = total + newTotal;
     });
-
     return total;
   }
 
   delete = function (data) {
     if (confirm('Are you sure?')) {
-      this.apiCallservice.handleData('Cart/deleteCart', 2, 1, {}, data._id)
+      this.apiCallservice.handleData('Cart/deleteCartWholeItem', 2, 1, {}, data._id)
         .subscribe((response: Response) => {
           this.fetchData();
-          // this.getTotal();
         });
     }
   };
@@ -68,7 +71,10 @@ export class CartDisplayComponent implements OnInit {
   }
 
   checkout() {
-    this.handledata.saveData(null);
+    this.apiCallservice.handleData('Store/deleteFinalStore', 1, 0)
+      .subscribe((res) => {
+        console.log(res);
+      })
     this.apiCallservice.handleData('Cart/getCart', 0, 0)
       .subscribe((res: Response) => {
         this.newAuthor = res.json();
@@ -111,7 +117,8 @@ export class CartDisplayComponent implements OnInit {
           i++;
         }
         doc.autoTable(columns, rows);
-        doc.save("new.pdf");
+        doc.save(this.customerName + ".pdf");
+
         this.apiCallservice.handleData('Cart/deleteCartFull', 2, 0)
           .subscribe((res) => {
             this.router.navigate(['DashBoard/Information/Shop_Handler/ShopDisplay']);
