@@ -10,8 +10,8 @@ import { HandleDataService } from '../../../common/services/Data/handle-data.ser
 export class NewProductUpdateComponent implements OnInit {
 
   constructor(
-    private apiCallservice: ApiCallsService,
-    private handledata: HandleDataService
+    public apiCallservice: ApiCallsService,
+    public handledata: HandleDataService
   ) { }
 
   ngOnInit() {

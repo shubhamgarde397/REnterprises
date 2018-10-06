@@ -1,11 +1,11 @@
 import { HttpHeaders } from '@angular/common/http';
 
 export class handleFunction {
-    private headerPost: HttpHeaders;
+    public headerPost: HttpHeaders;
     public yearNames = [];
     public days = [];
-    private date = new Date();
-    private monthNames = [];
+    public date = new Date();
+    public monthNames = [];
     genaratemonthNames() {
         return this.monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"]

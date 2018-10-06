@@ -11,12 +11,12 @@ import { HandleDataService } from '../../../common/services/Data/handle-data.ser
 })
 export class SubCategoryDisplayComponent implements OnInit {
   example: any;
-  private villageslist;
-  private show = false;
-  private found;
-  private arr;
-
-  constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
+  public villageslist;
+  public show = false;
+  public found;
+  public arr;
+  public subcategories: any;
+  constructor(public apiCallservice: ApiCallsService, public router: Router, public handledata: HandleDataService) { }
 
   fetchData = function () {
     this.apiCallservice.handleData('SubCategory/getSubCategory', 0, 0)

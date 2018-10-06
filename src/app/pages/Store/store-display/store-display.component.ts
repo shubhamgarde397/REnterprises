@@ -12,8 +12,9 @@ import { handleFunction } from '../../../common/services/functions/handleFunctio
 })
 export class StoreDisplayComponent implements OnInit {
   example: any;
+  public storedata: any;
 
-  constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
+  constructor(public apiCallservice: ApiCallsService, public router: Router, public handledata: HandleDataService) { }
 
   fetchData = function () {
     this.apiCallservice.handleData('Store/getStore', 0, 0)

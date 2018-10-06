@@ -12,12 +12,13 @@ import { HandleDataService } from '../../../common/services/Data/handle-data.ser
 })
 export class CategoryDispComponent implements OnInit {
   example: any;
-  private villageslist;
-  private show = false;
-  private found;
-  private arr;
+  public villageslist;
+  public show = false;
+  public found;
+  public arr;
+  public categories: any;
 
-  constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
+  constructor(public apiCallservice: ApiCallsService, public router: Router, public handledata: HandleDataService) { }
 
   fetchData = function () {
     this.apiCallservice.handleData('Category/getCategory', 0, 0)

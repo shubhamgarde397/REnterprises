@@ -22,18 +22,18 @@ export class SubCategoryUpdateComponent implements OnInit {
   model: subcategory;//mapped it to a variable
   modelSubmitted: subcategory;
   submitted = false;
-  private categorylist: any;
+  public categorylist: any;
   response: any;
   category: string;
   subCategory: string;
 
   constructor(
-    private router: Router,
-    private handleservice: ApiCallsService,
-    private apiCallservice: ApiCallsService,
-    private formBuilder: FormBuilder,
-    private _location: Location,
-    private handledata: HandleDataService
+    public router: Router,
+    public handleservice: ApiCallsService,
+    public apiCallservice: ApiCallsService,
+    public formBuilder: FormBuilder,
+    public _location: Location,
+    public handledata: HandleDataService
   ) { }
 
   ngOnInit() {

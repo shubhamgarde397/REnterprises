@@ -3,10 +3,10 @@ import { Consts } from '../../../common/constants/const';
 
 @Injectable()
 export class getFullApi {
-    private data: any;
-    private hostno: string = Consts.URL;
-    private portno: string = Consts.PORT_NUMBER;
-    private urlno: string = 'http://' + this.hostno + ':' + this.portno;
+    public data: any;
+    public hostno: string = Consts.URL;
+    public portno: string = Consts.PORT_NUMBER;
+    public urlno: string = 'http://' + this.hostno + ':' + this.portno;
 
     constructor() { }
 

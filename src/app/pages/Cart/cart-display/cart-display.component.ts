@@ -14,18 +14,19 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cart-display.component.css']
 })
 export class CartDisplayComponent implements OnInit {
-  example: any;
-  private villageslist;
-  private show = false;
-  private found;
-  private arr;
-  newAuthor: any;
+  public villageslist;
+  public show = false;
+  public found;
+  public arr;
+  public newAuthor: any;
   public subscription: Subscription;
   public message: string;
-  private checkoutButton = false;
+  public checkoutButton = false;
   public customerName: string;
+  public products: any;
+  public Total: number;
 
-  constructor(private apiCallservice: ApiCallsService, private router: Router, private handledata: HandleDataService) { }
+  constructor(public apiCallservice: ApiCallsService, public router: Router, public handledata: HandleDataService) { }
 
   fetchData = function () {
 

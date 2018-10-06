@@ -16,16 +16,16 @@ import { FormsModule } from "@angular/forms";
 })
 export class CategoryUpdateComponent implements OnInit {
 
-  private show: boolean = false;
-  private list;
-  private category: string;
-  private myFormGroup: FormGroup;
+  public show: boolean = false;
+  public list;
+  public category: string;
+  public myFormGroup: FormGroup;
 
   constructor(
-    private handledata: HandleDataService,
-    private _location: Location,
-    private formBuilder: FormBuilder,
-    private apiCallservice: ApiCallsService) { }
+    public handledata: HandleDataService,
+    public _location: Location,
+    public formBuilder: FormBuilder,
+    public apiCallservice: ApiCallsService) { }
 
   ngOnInit() {
     this.myFormGroup = this.formBuilder.group({

@@ -15,18 +15,18 @@ export class ShopDisplayComponent implements OnInit {
 
   realCategories: any[];
   public response: Object;
-  private villageslist;
-  private show = false;
-  private found;
-  private arr;
-  private quantity: number = 1;
+  public villageslist;
+  public show = false;
+  public found;
+  public arr;
+  public quantity: number = 1;
   public quant = 0;
   public categories;
 
   constructor(
-    private apiCallservice: ApiCallsService,
-    private router: Router,
-    private handledata: HandleDataService
+    public apiCallservice: ApiCallsService,
+    public router: Router,
+    public handledata: HandleDataService
   ) { }
 
   fetchData = function () {

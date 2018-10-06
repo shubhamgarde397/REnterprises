@@ -22,24 +22,24 @@ export class NewProductAddComponent implements OnInit {
   model: newproduct;//mapped it to a variable
   modelSubmitted: newproduct;
   submitted = false;
-  private categorylist: any;
+  public categorylist: any;
   response: any;
   category: string;
   subCategory: string;
-  private date: string;
-  private nameOfProduct: string;
-  private quantity: number;
-  private costPrice: number;
-  private sellingPrice: number;
-  private subCategoryToggle: boolean = false;
-  private OtherDataToggle: boolean = false;
+  public date: string;
+  public nameOfProduct: string;
+  public quantity: number;
+  public costPrice: number;
+  public sellingPrice: number;
+  public subCategoryToggle: boolean = false;
+  public OtherDataToggle: boolean = false;
 
   constructor(
-    private router: Router,
-    private handleservice: ApiCallsService,
-    private apiCallservice: ApiCallsService,
-    private formBuilder: FormBuilder,
-    private _location: Location
+    public router: Router,
+    public handleservice: ApiCallsService,
+    public apiCallservice: ApiCallsService,
+    public formBuilder: FormBuilder,
+    public _location: Location
   ) { }
 
   ngOnInit() {

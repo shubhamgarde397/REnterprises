@@ -21,11 +21,11 @@ export class CategoryAddComponent implements OnInit {
   model: category;//mapped it to a variable
   modelSubmitted: category;
   submitted = false;
-  private categorylist: any;
+  public categorylist: any;
 
   response: any;
 
-  constructor(private router: Router, private apiCallservice: ApiCallsService, private http: Http, private formBuilder: FormBuilder, private _location: Location) { }
+  constructor(public router: Router, public apiCallservice: ApiCallsService, public http: Http, public formBuilder: FormBuilder, public _location: Location) { }
   name: string;
   ngOnInit() {
     this.model = new category(this.name);

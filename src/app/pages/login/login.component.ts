@@ -14,19 +14,19 @@ import { login } from './login';
   providers: [ApiCallsService]
 })
 export class LoginComponent implements OnInit {
-  private username: any;
-  private password: any;
-  private show = true;
-  private myFormGroup: FormGroup;
-  private model: login;
-  private modelSubmitted: login;
-  private response: any;
-  private logindetailslist;
+  public username: any;
+  public password: any;
+  public show = true;
+  public myFormGroup: FormGroup;
+  public model: login;
+  public modelSubmitted: login;
+  public response: any;
+  public logindetailslist;
 
   constructor(
-    private router: Router,
-    private apiCallservice: ApiCallsService,
-    private formBuilder: FormBuilder,
+    public router: Router,
+    public apiCallservice: ApiCallsService,
+    public formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {

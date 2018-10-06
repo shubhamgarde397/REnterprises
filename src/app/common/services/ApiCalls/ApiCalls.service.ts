@@ -7,10 +7,10 @@ import { handleFunction } from '../functions/handleFunctions';
 
 @Injectable()
 export class ApiCallsService {
-  private headerPost: HttpHeaders;
-  private URL;
+  public headerPost: HttpHeaders;
+  public URL;
 
-  constructor(private http: Http, private httpClient: HttpClient, private getfullapi: getFullApi, private handlefunction: handleFunction) { }
+  constructor(public http: Http, public httpClient: HttpClient, public getfullapi: getFullApi, public handlefunction: handleFunction) { }
 
   handleData(api, apiCall, noOfIDs: number, formBody?, id1?, id2?, id3?) {
     this.handlefunction.createHeader();
