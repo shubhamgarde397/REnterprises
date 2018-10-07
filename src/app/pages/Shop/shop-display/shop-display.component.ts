@@ -37,6 +37,7 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   addQuantity(value) {
+    console.log("add");
     value.quant = value.quant + 1;
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
@@ -46,6 +47,7 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   removeQuantity(value) {
+    console.log("rem");
     value.quant = value.quant - 1;
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/deleteCart', 1, 0, this.arr)
