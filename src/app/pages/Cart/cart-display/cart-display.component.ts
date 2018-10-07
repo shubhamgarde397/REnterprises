@@ -118,7 +118,7 @@ export class CartDisplayComponent implements OnInit {
           i++;
         }
         doc.autoTable(columns, rows);
-        doc.save(this.customerName + ".pdf");
+        doc.save("Bill_" + this.customerName + ".pdf");
 
         this.apiCallservice.handleData('Cart/deleteCartFull', 2, 0)
           .subscribe((res) => {
