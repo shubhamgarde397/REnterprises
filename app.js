@@ -108,5 +108,5 @@ function arrwithpromise(a) {
 // WITH PROMISE
 
 app.listen(3000, function () {
-    console.log("RE");
+    console.log("RE SERVER STARTED");
 });
