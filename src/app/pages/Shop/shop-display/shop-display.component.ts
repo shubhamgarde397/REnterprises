@@ -48,7 +48,7 @@ export class ShopDisplayComponent implements OnInit {
           this.response = x;
           this.spinnerService.hide();
         });
-    }, 500);
+    }, 200);
 
   }
 
@@ -62,7 +62,7 @@ export class ShopDisplayComponent implements OnInit {
           this.response = x;
           this.spinnerService.hide();
         });
-    }, 500);
+    }, 200);
 
   }
 
