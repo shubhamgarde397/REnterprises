@@ -25,9 +25,7 @@ router.get('/getLoginDetailsbyid/:username/:password', function (req, res) {
         else {
             var db = client.db(dbName);
             var c = db.collection(common_data.table_name.login).find({ $and: [{ "username": req.params.username }, { "password": req.params.password }] }).count();
-            console.log(dbName + "." + common_data.table_name.login + ".find({ $and: [{ username:" + req.params.username + " }, { password:" + req.params.password + " }] }).count()");
             c.then(function (result) {
-                console.log(result);
                 if (result == 0) {
                     return res.json(status);
                 }
