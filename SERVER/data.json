@@ -8,7 +8,7 @@
         "express": "express"
     },
     "database": {
-        "dbname": "NRCM"
+        "dbname": "REnterprises"
     },
     "table_api": {
         "deleteByID": {
