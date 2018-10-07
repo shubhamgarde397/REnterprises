@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
 import { HandleDataService } from '../../../common/services/Data/handle-data.service';
 import { handleFunction } from '../../../common/services/functions/handleFunctions';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-shop-display',
@@ -26,7 +27,8 @@ export class ShopDisplayComponent implements OnInit {
   constructor(
     public apiCallservice: ApiCallsService,
     public router: Router,
-    public handledata: HandleDataService
+    public handledata: HandleDataService,
+    private spinnerService: Ng4LoadingSpinnerService
   ) { }
 
   fetchData = function () {
@@ -37,22 +39,24 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   addQuantity(value) {
-    console.log("add");
+    this.spinnerService.show();
     value.quant = value.quant + 1;
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
       .subscribe((x) => {
         this.response = x;
+        this.spinnerService.hide();
       });
   }
 
   removeQuantity(value) {
-    console.log("rem");
+    this.spinnerService.show();
     value.quant = value.quant - 1;
     this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
     this.apiCallservice.handleData('Cart/deleteCart', 1, 0, this.arr)
       .subscribe((x) => {
         this.response = x;
+        this.spinnerService.hide();
       });
   }
 

@@ -41,6 +41,7 @@ import { StoreDisplayComponent } from './pages/Store/store-display/store-display
 import { CartDisplayComponent } from './pages/Cart/cart-display/cart-display.component';
 import { ShopDisplayComponent } from './pages/Shop/shop-display/shop-display.component';
 import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.component';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { ShopHandlerComponent } from './pages/Shop/shop-handler/shop-handler.com
     MatTooltipModule,
     MatSelectModule,
     MatSidenavModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [getFullApi, handleFunction],
   bootstrap: [AppComponent]
