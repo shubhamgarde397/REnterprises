@@ -40,24 +40,30 @@ export class ShopDisplayComponent implements OnInit {
 
   addQuantity(value) {
     this.spinnerService.show();
-    value.quant = value.quant + 1;
-    this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
-    this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
-      .subscribe((x) => {
-        this.response = x;
-        this.spinnerService.hide();
-      });
+    setTimeout(() => {
+      value.quant = value.quant + 1;
+      this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
+      this.apiCallservice.handleData('Cart/addCart', 1, 0, this.arr)
+        .subscribe((x) => {
+          this.response = x;
+          this.spinnerService.hide();
+        });
+    }, 1000);
+
   }
 
   removeQuantity(value) {
     this.spinnerService.show();
-    value.quant = value.quant - 1;
-    this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
-    this.apiCallservice.handleData('Cart/deleteCart', 1, 0, this.arr)
-      .subscribe((x) => {
-        this.response = x;
-        this.spinnerService.hide();
-      });
+    setTimeout(() => {
+      value.quant = value.quant - 1;
+      this.arr = { "category": value.category, "subCategory": value.subCategory, "nameOfProduct": value.nameOfProduct, "sellingPrice": value.sellingPrice };
+      this.apiCallservice.handleData('Cart/deleteCart', 1, 0, this.arr)
+        .subscribe((x) => {
+          this.response = x;
+          this.spinnerService.hide();
+        });
+    }, 1000);
+
   }
 
   checkout() {
